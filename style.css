@@ -54,6 +54,22 @@ button{
     margin: 50px auto;
 }
 
+.top{
+    display: flex;
+}
+
+.left{
+    width: 100%;
+}
+
+.right{
+    width: 100%;
+}
+
+.in{
+    width: 35%;
+}
+
 /*question*/
 .QuestionNumber{
     color: white;
@@ -69,7 +85,7 @@ button{
 }
 
 .product{
-    margin: 2.5% auto;
+    margin: 0% auto;
     width: 40%;
 }
 
@@ -193,7 +209,19 @@ img.btn{
         max-width: 250px;
         width: 50%;
     }
+    .product{
+        width: 45%;
+    }
+    .in{
+        width: 45% !important;
+    }
+    .left{
+        max-width: 60%;
+    }
     .right{
-        max-width: 20%;
+        max-width: 60%;
+    }
+    .in{
+        width: 100%;
     }
 }

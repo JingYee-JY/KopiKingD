@@ -11,6 +11,11 @@ const submit = document.querySelector(".submit")
 const popUp = document.querySelector(".popUp");
 const final = document.querySelector(".final");
 
+let easyQ;
+let normalQ;
+let hardQ;
+
+
 let current;
 let totalQuestion = 3;
 let score;
@@ -75,7 +80,7 @@ let allQuestion = [
     ingredient1:"3",ingredient2:"4", ingredient3:"5",
     ingredient1Image:"./img/Milo.png", ingredient2Image:"./img/Ice.png", ingredient3Image:"./img/Milk.png"},
 
-    {name: "Yuan Yangg Kosong",image:"./img/YuanYangKosong.png", 
+    {name: "Yuan Yang Kosong",image:"./img/YuanYangKosong.png", 
     ingredient1:"1",ingredient2:"2", ingredient3:"5",
     ingredient1Image:"./img/BlackKopi.png", ingredient2Image:"./img/Tea.png", ingredient3Image:"./img/Milk.png"},
 
@@ -111,6 +116,7 @@ startButton.addEventListener("click", () => {
 easy.addEventListener("click", () => {
     selection.classList.add("hide")
     game.classList.remove("hide")
+    easyQ = true
     current = 0;
     totalQuestion = 5;
     score = 0;
@@ -131,6 +137,7 @@ easy.addEventListener("click", () => {
 normal.addEventListener("click", () => {
     selection.classList.add("hide")
     game.classList.remove("hide")
+    normalQ = true
     current = 0;
     totalQuestion = 10;
     score = 0;
@@ -151,6 +158,7 @@ normal.addEventListener("click", () => {
 hard.addEventListener("click", () => {
     selection.classList.add("hide")
     game.classList.remove("hide")
+    hardQ = true
     current = 0;
     totalQuestion = 15;
     score = 0;
@@ -369,14 +377,60 @@ function Question(){
 
     qIndex = Math.floor(Math.random() * 12);
     
-    question.innerHTML = `
-    <div class="coffee-content"> Order: ${allQuestion[qIndex].name}</div>
-    <img class="product" src="${allQuestion[qIndex].image}">
-    <div class="equation">
-        <button class="answer1"></button>
-        <button class="answer2"></button>
-        <button class="answer3"></button>
-    </div>`
+    if(easyQ == true){
+        question.innerHTML = `
+        <div class="top">
+            <div class="left">
+                <div class="coffee-content"> Order:</div>
+                <img class="product" src="${allQuestion[qIndex].image}">
+                <div class="coffee-content">${allQuestion[qIndex].name}</div>
+            </div>
+            <div class="right">
+                <div class="coffee-content"> Ingredient:</div>
+                <img class="in" src="${allQuestion[qIndex].ingredient1Image}">
+                <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
+                <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
+            </div>
+        </div>
+        <div class="equation">
+            <button class="answer1"></button>
+            <button class="answer2"></button>
+            <button class="answer3"></button>
+        </div>`
+    }
+
+    if(normalQ == true){
+        question.innerHTML = `
+        <div class="top">
+            <div class="left">
+                <div class="coffee-content"> Order:</div>
+                <img class="product" src="${allQuestion[qIndex].image}">
+                <div class="coffee-content">${allQuestion[qIndex].name}</div>
+            </div>
+            <div class="right">
+                <div class="coffee-content"> Ingredient:</div>
+                <img class="in" src="${allQuestion[qIndex].ingredient1Image}">
+                <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
+                <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
+            </div>
+        </div>
+        <div class="equation">
+            <button class="answer1"></button>
+            <button class="answer2"></button>
+            <button class="answer3"></button>
+        </div>`
+    }
+    if(hardQ == true){
+        question.innerHTML = `
+        <div class="coffee-content"> Order:</div>
+        <img class="product" src="${allQuestion[qIndex].image}">
+        <div class="coffee-content">${allQuestion[qIndex].name}</div>
+        <div class="equation">
+            <button class="answer1"></button>
+            <button class="answer2"></button>
+            <button class="answer3"></button>
+        </div>`
+    }
 
     for (let i = 0; i < 3; i ++){
         let currentClass = "answer" + (i + 1)
