@@ -48,53 +48,53 @@ let chosenBtn7;
 let allQuestion = [
     {name: "Kopi",image:"./img/Kopi.png", 
     ingredient1:"1",ingredient2:"5", ingredient3:"7",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Milk.png", ingredient3Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Tiao Her",image:"./img/TiaoHer.png", 
     ingredient1:"2",ingredient2:"0", ingredient3:"0",
-    ingredient1Image:"./img/Tea.png",ingredient2Image:"", ingredient3Image:""},
+    ingredient1Image:"./img/tea.png",ingredient2Image:"", ingredient3Image:""},
 
 
     {name: "Kopi O Sew Dia Peng",image:"./img/KopiOSewDiaPeng.png", 
     ingredient1:"1",ingredient2:"4", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Ice.png", ingredient3Image:""},
+    ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/ice.png", ingredient3Image:""},
 
     
     {name: "Kopi O Kosong",image:"./img/KopiOKosong.png", 
     ingredient1:"1",ingredient2:"0", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"", ingredient3Image:""},
+    ingredient1Image:"./img/blackKopi.png",ingredient2Image:"", ingredient3Image:""},
 
     {name: "Teh",image:"./img/Teh.png", 
     ingredient1:"2",ingredient2:"5", ingredient3:"7",
-    ingredient1Image:"./img/Tea.png",ingredient2Image:"./img/Milk.png", ingredient3Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/tea.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Teh O",image:"./img/TehO.png", 
     ingredient1:"2",ingredient2:"7", ingredient3:"0",
-    ingredient1Image:"./img/Tea.png",ingredient2Image:"./img/Sugar.png", ingredient3Image:""},
+    ingredient1Image:"./img/tea.png",ingredient2Image:"./img/sugar.png", ingredient3Image:""},
 
     {name: "Kopi O",image:"./img/KopiO.png", 
     ingredient1:"1",ingredient2:"7", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Sugar.png", ingredient3Image:""},
+    ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/sugar.png", ingredient3Image:""},
 
     {name: "Milo Dinosaur",image:"./img/MiloDinosaur.png", 
     ingredient1:"3",ingredient2:"4", ingredient3:"5",
-    ingredient1Image:"./img/Milo.png", ingredient2Image:"./img/Ice.png", ingredient3Image:"./img/Milk.png"},
+    ingredient1Image:"./img/milo.png", ingredient2Image:"./img/ice.png", ingredient3Image:"./img/milk.png"},
 
     {name: "Yuan Yang Kosong",image:"./img/YuanYangKosong.png", 
     ingredient1:"1",ingredient2:"2", ingredient3:"5",
-    ingredient1Image:"./img/BlackKopi.png", ingredient2Image:"./img/Tea.png", ingredient3Image:"./img/Milk.png"},
+    ingredient1Image:"./img/blackKopi.png", ingredient2Image:"./img/tea.png", ingredient3Image:"./img/milk.png"},
 
     {name: "Kopi C",image:"./img/KopiC.png", 
     ingredient1:"1",ingredient2:"6", ingredient3:"7",
-    ingredient1Image:"./img/BlackKopi.png", ingredient2Image:"./img/EvaporatedMilk.png", ingredient3Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/blackKopi.png", ingredient2Image:"./img/evaporatedMilk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Tak Giu",image:"./img/TakGiu.png", 
     ingredient1:"3",ingredient2:"5", ingredient3:"7",
-    ingredient1Image:"./img/Milo.png", ingredient2Image:"./img/Milk.png", ingredient3Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/milo.png", ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Teh C",image:"./img/TehC.png", 
     ingredient1:"2",ingredient2:"6", ingredient3:"7",
-    ingredient1Image:"./img/Tea.png", ingredient2Image:"./img/EvaporatedMilk.png", ingredient3Image:"./img/Sugar.png"}
+    ingredient1Image:"./img/tea.png", ingredient2Image:"./img/evaporatedMilk.png", ingredient3Image:"./img/sugar.png"}
 
 ]
 
