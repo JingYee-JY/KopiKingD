@@ -1,0 +1,198 @@
+/*mobile*/
+body {
+    font-family: 'noto';
+    margin: 0;
+    padding: 0;
+    background-color: #EDD5A5;
+}
+
+*{
+    font-family: "Lilita One";
+}
+.start, .popUp{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    position: relative;
+}
+
+.game-title{
+    margin-bottom: 30px;
+}
+
+.title{
+    display: flex;
+    margin: 30px auto;
+    max-width: 60%;
+    padding: 0;
+}
+
+.image{
+    width: 70%;
+    margin: 30px auto;
+}
+
+button{
+    background-color: transparent;
+    border: 0px;
+    width:100%;
+    padding: 2.5% 5%;
+}
+
+.startbtn{
+    max-width: 250px;
+}
+
+.hide{
+    display: none;
+    visibility: hidden;
+}
+
+.easy, .normal, .hard{
+    margin: 50px auto;
+}
+
+/*question*/
+.QuestionNumber{
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    background-color: #AA784A;
+    width: 60px;
+    margin: 20px auto;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 15px 0px 0px #734D2B; 
+    box-shadow: 0px 5px 0px 0px #734D2B;
+}
+
+.product{
+    margin: 2.5% auto;
+    width: 40%;
+}
+
+.equation{
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
+    background-color: #DEBD9F;
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5% auto;
+    border-radius: 30px;
+}
+
+.answer1, .answer2, .answer3, .rightAnswer1, .rightAnswer2, .rightAnswer3{
+    color: white;
+    padding: 15%;
+    margin: 2.5% 2.5%;
+    border-radius: 15px;
+}
+
+button.submit, button.playAgain{
+    max-width: 75%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.question, .instruction {
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.instruction{
+    padding-top:0px;
+}
+
+.question{
+    padding-bottom: 0px;
+}
+.question p, .instruction p{
+    margin: 0;
+}
+
+.answer-q{
+    width: 90%;
+    margin: -0.5% auto;
+    display: flex;
+    justify-content: center;
+    background-color: #906A55;
+}
+
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7{
+    max-width: 30%;
+    cursor: pointer;
+    padding: 0.5%;
+}
+#btn1 img , #btn2 img, #btn3 img, #btn4 img, #btn5 img, #btn6 img,#btn7 img{
+    max-width: 100%;
+}
+
+img.btn{
+    width: 100%;
+}
+
+.not,.complete{
+    margin: 0% auto;
+    font-size: 40px;
+}
+.not{
+    color: #DF493A;
+}
+.complete{
+    color: #4F8B56;
+}
+
+.final{
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.final .end{
+    display: flex;
+    margin: 0 auto;
+    max-width: 60%;
+}
+
+.final p{
+    font-size: 30px;
+}
+
+/*desktop*/
+@media screen and (min-width:1200px){
+    .start, .game, .final{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    button.submit, button.playAgain{
+        max-width: 260px;
+    }
+    .startbtn{
+        max-width: 260px;
+    }
+    .answer-q{
+        display: grid;
+        flex-direction: row;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    .final .end{
+        max-width: 360px;
+    }
+    .next{
+        max-width: 250px;
+        width: 50%;
+    }
+    .right{
+        max-width: 20%;
+    }
+}

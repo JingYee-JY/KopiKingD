@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi King</title>
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css?family=Lilita One">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="start">
+        <div class="game-title">
+            <img class="title" src="./img/title.png">
+        </div>
+        <img class="image" src="./img/preview.png">
+        <button class="startButton">
+            <img class="startbtn" src="./img/start.png">
+        </button>
+    </div>
+    <div class="selection hide">
+        <button class="easy">
+            <img class="startbtn" src="./img/easy.png">
+        </button>
+        <button class="normal">
+            <img class="startbtn" src="./img/normal.png">
+        </button>
+        <button class="hard">
+            <img class="startbtn" src="./img/hard.png">
+        </button>
+    </div>
+    <div class="game hide">
+        <div class="QuestionNumber">
+            0/0
+        </div>
+        <div class="question"></div>
+        <div class="instruction">
+            <p>Tap the answers into the boxes above</p>
+        </div>
+        <!--added answer-q-->
+        <div class="answer-q">
+        <button id="btn1">
+            <img src="./img/blackKopi.png">
+        </button>
+        <button id="btn2">
+            <img src="./img/tea.png">
+        </button>
+        <button id="btn3">
+            <img src="./img/milo.png">
+        </button>
+        </div>
+    <div class="answer-q">
+        <button id="btn4">
+            <img src="./img/ice.png">
+        </button>
+        <button id="btn5">
+            <img src="./img/milk.png">
+        </button>
+        <button id="btn6">
+            <img src="./img/evaporatedMilk.png">
+        </button>
+    </div>
+    <div class="answer-q">
+        <button id="btn7">
+            <img src="./img/sugar.png">
+        </button>
+    </div>
+        <button class="submit">
+            <img class="btn" src="./img/submit.png">
+        </button>
+</div>
+    </div>
+    <div class="popUp hide"></div>
+    <div class="final hide"></div>
+    <script src="script.js"></script>
+</body>
+</html>
