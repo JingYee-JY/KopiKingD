@@ -447,6 +447,16 @@ function Question(){
             <button class="answer2"></button>
             <button class="answer3"></button>
         </div>`
+
+        if(missingIngredient == 0){
+            allQuestion[qIndex].ingredient1Image = correctImage1
+        }
+        if(missingIngredient == 1){
+            allQuestion[qIndex].ingredient2Image = correctImage2
+        }
+        if(missingIngredient == 2){
+            allQuestion[qIndex].ingredient3Image = correctImage3
+        }
     }
 
     for (let i = 0; i < 3; i ++){
