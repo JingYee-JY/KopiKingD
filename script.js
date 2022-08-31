@@ -15,7 +15,6 @@ let easyQ;
 let normalQ;
 let hardQ;
 
-
 let current;
 let totalQuestion = 3;
 let score;
@@ -131,7 +130,6 @@ easy.addEventListener("click", () => {
     chosenBtn6 = false;
     chosenBtn7 = false;
     Question()
-    ingredients()
 })
 
 normal.addEventListener("click", () => {
@@ -152,7 +150,6 @@ normal.addEventListener("click", () => {
     chosenBtn6 = false;
     chosenBtn7 = false;
     Question()
-    ingredients()
 })
 
 hard.addEventListener("click", () => {
@@ -173,7 +170,6 @@ hard.addEventListener("click", () => {
     chosenBtn6 = false;
     chosenBtn7 = false;
     Question()
-    ingredients()
 })
 
 submit.addEventListener("click", () => {
@@ -277,6 +273,8 @@ submit.addEventListener("click", () => {
         Question()
     })
 })
+
+ingredients()
 
 function ingredients(){
     for (let i = 0; i < 7; i ++){
