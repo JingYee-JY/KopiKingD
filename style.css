@@ -144,9 +144,13 @@ button.submit, button.playAgain{
     background-color: #906A55;
 }
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7, #empty{
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7{
     max-width: 90%;
     cursor: pointer;
+    padding: 0.5%;
+}
+#empty{
+    max-width: 90%;
     padding: 0.5%;
 }
 #btn1 img , #btn2 img, #btn3 img, #btn4 img, #btn5 img, #btn6 img,#btn7 img, #empty img{
