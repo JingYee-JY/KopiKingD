@@ -48,7 +48,7 @@ let chosenBtn7;
 let allQuestion = [
     {name: "Kopi",image:"./img/Kopi.png", 
     ingredient1:"1",ingredient2:"5", ingredient3:"7",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
+    ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Tiao Her",image:"./img/TiaoHer.png", 
     ingredient1:"2",ingredient2:"0", ingredient3:"0",

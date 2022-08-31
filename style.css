@@ -207,6 +207,7 @@ img.btn{
     }
     .next{
         max-width: 250px;
+        height: auto;
         width: 50%;
     }
     .product{
