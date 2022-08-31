@@ -122,17 +122,18 @@ button.submit, button.playAgain{
 .answer-q{
     width: 90%;
     margin: -0.5% auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     justify-content: center;
     background-color: #906A55;
 }
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7{
-    max-width: 30%;
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7, #empty{
+    max-width: 90%;
     cursor: pointer;
     padding: 0.5%;
 }
-#btn1 img , #btn2 img, #btn3 img, #btn4 img, #btn5 img, #btn6 img,#btn7 img{
+#btn1 img , #btn2 img, #btn3 img, #btn4 img, #btn5 img, #btn6 img,#btn7 img, #empty img{
     max-width: 100%;
 }
 
