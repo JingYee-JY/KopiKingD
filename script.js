@@ -52,17 +52,17 @@ let allQuestion = [
 
     {name: "Tiao Her",image:"./img/TiaoHer.png", 
     ingredient1:"2",ingredient2:"0", ingredient3:"0",
-    ingredient1Image:"./img/Tea.png"},
+    ingredient1Image:"./img/Tea.png",ingredient2Image:"", ingredient3Image:""},
 
 
     {name: "Kopi O Sew Dia Peng",image:"./img/KopiOSewDiaPeng.png", 
     ingredient1:"1",ingredient2:"4", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Ice.png"},
+    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Ice.png", ingredient3Image:""},
 
     
     {name: "Kopi O Kosong",image:"./img/KopiOKosong.png", 
     ingredient1:"1",ingredient2:"0", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png"},
+    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"", ingredient3Image:""},
 
     {name: "Teh",image:"./img/Teh.png", 
     ingredient1:"2",ingredient2:"5", ingredient3:"7",
@@ -70,11 +70,11 @@ let allQuestion = [
 
     {name: "Teh O",image:"./img/TehO.png", 
     ingredient1:"2",ingredient2:"7", ingredient3:"0",
-    ingredient1Image:"./img/Tea.png",ingredient2Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/Tea.png",ingredient2Image:"./img/Sugar.png", ingredient3Image:""},
 
     {name: "Kopi O",image:"./img/KopiO.png", 
     ingredient1:"1",ingredient2:"7", ingredient3:"0",
-    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Sugar.png"},
+    ingredient1Image:"./img/BlackKopi.png",ingredient2Image:"./img/Sugar.png", ingredient3Image:""},
 
     {name: "Milo Dinosaur",image:"./img/MiloDinosaur.png", 
     ingredient1:"3",ingredient2:"4", ingredient3:"5",
@@ -377,6 +377,13 @@ function Question(){
 
     qIndex = Math.floor(Math.random() * 12);
     
+    correctAnswer1 = allQuestion[qIndex].ingredient1
+    correctAnswer2 = allQuestion[qIndex].ingredient2
+    correctAnswer3 = allQuestion[qIndex].ingredient3
+    correctImage1 = allQuestion[qIndex].ingredient1Image
+    correctImage2 = allQuestion[qIndex].ingredient2Image
+    correctImage3 = allQuestion[qIndex].ingredient3Image
+
     if(easyQ == true){
         question.innerHTML = `
         <div class="top">
@@ -400,6 +407,18 @@ function Question(){
     }
 
     if(normalQ == true){
+        let missingIngredient = Math.floor(Math.random() * 3);
+
+        if(missingIngredient == 0){
+            allQuestion[qIndex].ingredient1Image = "./img/q.png"
+        }
+        if(missingIngredient == 1){
+            allQuestion[qIndex].ingredient2Image = "./img/q.png"
+        }
+        if(missingIngredient == 2){
+            allQuestion[qIndex].ingredient3Image = "./img/q.png"
+        }
+
         question.innerHTML = `
         <div class="top">
             <div class="left">
@@ -445,11 +464,4 @@ function Question(){
             currentBtn.style.backgroundImage = "none"
         })
     }
-
-    correctAnswer1 = allQuestion[qIndex].ingredient1
-    correctAnswer2 = allQuestion[qIndex].ingredient2
-    correctAnswer3 = allQuestion[qIndex].ingredient3
-    correctImage1 = allQuestion[qIndex].ingredient1Image
-    correctImage2 = allQuestion[qIndex].ingredient2Image
-    correctImage3 = allQuestion[qIndex].ingredient3Image
 }
