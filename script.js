@@ -56,7 +56,7 @@ let allQuestion = [
     ingredient1Image:"./img/tea.png",ingredient2Image:"", ingredient3Image:""},
 
 
-    {name: "Kopi O Sew Dia Peng",image:"./img/KopiOSewDiaPeng.png",
+    {name: "Kopi O Siew Dia Peng",image:"./img/KopiOSewDiaPeng.png",
     length: "2",  
     ingredient1:"1",ingredient2:"4", ingredient3:"0",
     ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/ice.png", ingredient3Image:""},
