@@ -334,42 +334,43 @@ img.btn{
 
 /*desktop*/
 @media screen and (min-width:1200px){
-    .start, .game, .final, .popUp{
-        max-width: 500px;
+    body{
+      width: 100%;
+    }
+    .start, .selection,.game,.popUp,.final{
+        max-width: 400px;
         margin: 0 auto;
     }
-    button.submit, button.playAgain{
-        max-width: 260px;
+    .preview{
+        max-width: 300px;
+        margin: 40px auto;
     }
-    .startbtn{
-        max-width: 260px;
+    .startButton, .startGame,.restart,.easy,.normal,.hard,.submit,.next{
+        max-width: 250px;
+        padding: 3%;
+    }
+    .startButton{
+        margin: 50px auto;
+    }
+    .question, .instruction {
+        font-size: 15px;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+    .QuestionNumber{
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     .answer-q{
-        display: grid;
-        flex-direction: row;
-        max-width: 360px;
-        margin: 0 auto;
+        width: 75%;
     }
-    .final .end{
-        max-width: 360px;
+    .popUp .product{
+        width: 50%;
     }
-    .next{
-        max-width: 250px;
-        height: auto;
+    .text{
+        margin: 15px;
     }
-    .product{
-        width: 45% !important;
-    }
-    .in{
-        width: 45% !important;
-    }
-    .left{
-        max-width: 60%;
-    }
-    .right{
-        max-width: 60%;
-    }
-    .in{
-        width: 100%;
+    .equation{
+        margin-bottom: 10px;
     }
 }
