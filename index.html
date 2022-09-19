@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kopi King</title>
     <link rel="stylesheet" 
-    href="https://fonts.googleapis.com/css?family=Lilita One">
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,21 +14,18 @@
         <div class="game-title">
             <img class="title" src="./img/title.png">
         </div>
-        <img class="image" src="./img/preview.png">
         <button class="startButton">
-            <img class="startbtn" src="./img/start.png">
+            <p class="words"><img src="./img/arrow.png" class="arrowHead"> START GAME</p>
         </button>
+        <img class="image" src="./img/preview.png">
     </div>
     <div class="selection hide">
-        <button class="easy">
-            <img class="startbtn" src="./img/easy.png">
-        </button>
-        <button class="normal">
-            <img class="startbtn" src="./img/normal.png">
-        </button>
-        <button class="hard">
-            <img class="startbtn" src="./img/hard.png">
-        </button>
+        <div class="game-title">
+            <img class="title" src="./img/title.png">
+        </div>
+        <button class="easy">Easy</button>
+        <button class="normal">Normal</button>
+        <button class="hard">Hard</button>
     </div>
     <div class="game hide">
         <div class="QuestionNumber">
@@ -36,10 +33,9 @@
         </div>
         <div class="question"></div>
         <div class="instruction">
-            <p>Tap the answers into the boxes above</p>
+            <p>Match the Ingredients</p>
         </div>
-        <!--added answer-q-->
-        <div class="answer-q">
+    <div class="answer-q">
         <button id="btn1">
             <img src="./img/blackKopi.png">
         </button>
@@ -49,8 +45,6 @@
         <button id="btn3">
             <img src="./img/milo.png">
         </button>
-        </div>
-    <div class="answer-q">
         <button id="btn4">
             <img src="./img/ice.png">
         </button>
@@ -60,21 +54,12 @@
         <button id="btn6">
             <img src="./img/evaporatedMilk.png">
         </button>
-    </div>
-    <div class="answer-q">
-        <button id="empty">
-            <img src="./img/blank.png">
-        </button>
+        <button class="empty"></button>
         <button id="btn7">
             <img src="./img/sugar.png">
         </button>
-        <button id="empty">
-            <img src="./img/blank.png">
-        </button>
     </div>
-        <button class="submit">
-            <img class="btn" src="./img/Submit.png">
-        </button>
+        <button class="submit">Confirm</button>
 </div>
     </div>
     <div class="popUp hide"></div>

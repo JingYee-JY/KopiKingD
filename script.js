@@ -45,53 +45,65 @@ let chosenBtn6;
 let chosenBtn7;
 
 let allQuestion = [
-    {name: "Kopi",image:"./img/Kopi.png", 
+    {name: "Kopi",image:"./img/Kopi.png",
+    length: "3", 
     ingredient1:"1",ingredient2:"5", ingredient3:"7",
     ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Tiao Her",image:"./img/TiaoHer.png", 
+    length: "2", 
     ingredient1:"2",ingredient2:"0", ingredient3:"0",
     ingredient1Image:"./img/tea.png",ingredient2Image:"", ingredient3Image:""},
 
 
-    {name: "Kopi O Sew Dia Peng",image:"./img/KopiOSewDiaPeng.png", 
+    {name: "Kopi O Sew Dia Peng",image:"./img/KopiOSewDiaPeng.png",
+    length: "2",  
     ingredient1:"1",ingredient2:"4", ingredient3:"0",
     ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/ice.png", ingredient3Image:""},
 
     
-    {name: "Kopi O Kosong",image:"./img/KopiOKosong.png", 
+    {name: "Kopi O Kosong",image:"./img/KopiOKosong.png",
+    length: "1",  
     ingredient1:"1",ingredient2:"0", ingredient3:"0",
     ingredient1Image:"./img/blackKopi.png",ingredient2Image:"", ingredient3Image:""},
 
     {name: "Teh",image:"./img/Teh.png", 
+    length: "3", 
     ingredient1:"2",ingredient2:"5", ingredient3:"7",
     ingredient1Image:"./img/tea.png",ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Teh O",image:"./img/TehO.png", 
+    length: "2", 
     ingredient1:"2",ingredient2:"7", ingredient3:"0",
     ingredient1Image:"./img/tea.png",ingredient2Image:"./img/sugar.png", ingredient3Image:""},
 
     {name: "Kopi O",image:"./img/KopiO.png", 
+    length: "2", 
     ingredient1:"1",ingredient2:"7", ingredient3:"0",
     ingredient1Image:"./img/blackKopi.png",ingredient2Image:"./img/sugar.png", ingredient3Image:""},
 
-    {name: "Milo Dinosaur",image:"./img/MiloDinosaur.png", 
+    {name: "Milo Dinosaur",image:"./img/MiloDinosaur.png",
+    length: "3",  
     ingredient1:"3",ingredient2:"4", ingredient3:"5",
     ingredient1Image:"./img/milo.png", ingredient2Image:"./img/ice.png", ingredient3Image:"./img/milk.png"},
 
     {name: "Yuan Yang Kosong",image:"./img/YuanYangKosong.png", 
+    length: "3", 
     ingredient1:"1",ingredient2:"2", ingredient3:"5",
     ingredient1Image:"./img/blackKopi.png", ingredient2Image:"./img/tea.png", ingredient3Image:"./img/milk.png"},
 
     {name: "Kopi C",image:"./img/KopiC.png", 
+    length: "3", 
     ingredient1:"1",ingredient2:"6", ingredient3:"7",
     ingredient1Image:"./img/blackKopi.png", ingredient2Image:"./img/evaporatedMilk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Tak Giu",image:"./img/TakGiu.png", 
+    length: "3", 
     ingredient1:"3",ingredient2:"5", ingredient3:"7",
     ingredient1Image:"./img/milo.png", ingredient2Image:"./img/milk.png", ingredient3Image:"./img/sugar.png"},
 
     {name: "Teh C",image:"./img/TehC.png", 
+    length: "3", 
     ingredient1:"2",ingredient2:"6", ingredient3:"7",
     ingredient1Image:"./img/tea.png", ingredient2Image:"./img/evaporatedMilk.png", ingredient3Image:"./img/sugar.png"}
 
@@ -122,13 +134,6 @@ easy.addEventListener("click", () => {
     choice1 = 0;
     choice2 = 0;
     choice3 = 0;
-    chosenBtn1 = false;
-    chosenBtn2 = false;
-    chosenBtn3 = false;
-    chosenBtn4 = false;
-    chosenBtn5 = false;
-    chosenBtn6 = false;
-    chosenBtn7 = false;
     Question()
 })
 
@@ -142,13 +147,6 @@ normal.addEventListener("click", () => {
     choice1 = 0;
     choice2 = 0;
     choice3 = 0;
-    chosenBtn1 = false;
-    chosenBtn2 = false;
-    chosenBtn3 = false;
-    chosenBtn4 = false;
-    chosenBtn5 = false;
-    chosenBtn6 = false;
-    chosenBtn7 = false;
     Question()
 })
 
@@ -162,13 +160,6 @@ hard.addEventListener("click", () => {
     choice1 = 0;
     choice2 = 0;
     choice3 = 0;
-    chosenBtn1 = false;
-    chosenBtn2 = false;
-    chosenBtn3 = false;
-    chosenBtn4 = false;
-    chosenBtn5 = false;
-    chosenBtn6 = false;
-    chosenBtn7 = false;
     Question()
 })
 
@@ -180,25 +171,24 @@ submit.addEventListener("click", () => {
     choosenAnswer2 = false
     choosenAnswer3 = false
 
+    console.log(choice1,choice2,choice3)
+    console.log(correctAnswer1, correctAnswer2, correctAnswer3)
+
     for(let i = 1; i < 4; i++){
         let currentCheck = "choice" + i
         if(window[currentCheck] == correctAnswer1 && choosenAnswer1 == false){
             console.log("r1")
-            choice1 = 0
             choosenAnswer1 = true
         }
         if(window[currentCheck] == correctAnswer2 && choosenAnswer2 == false){
             console.log("r2")
-            choice2 = 0
             choosenAnswer2 = true
         }
         if(window[currentCheck] == correctAnswer3 && choosenAnswer3 == false){
             console.log("r3")
-            choice3 = 0
             choosenAnswer3 = true
         }
-        console.log(choice3)
-        console.log(correctAnswer3)
+        window[currentCheck] = 0
     }
 
     if(choosenAnswer1 == true && choosenAnswer2 == true && choosenAnswer3 == true){
@@ -213,15 +203,13 @@ submit.addEventListener("click", () => {
         <div class="coffee-content"> Order: ${allQuestion[qIndex].name}</div>
         <img class="product" src="${allQuestion[qIndex].image}">
         <p class="complete">Completed!</p>
-        <p>Your Answer:</p>
+        <p class="text">Your Answer:</p>
         <div class="equation">
             <button class="rightAnswer1"></button>
             <button class="rightAnswer2"></button>
             <button class="rightAnswer3"></button>
         </div>
-        <button class="next">
-            <img class="startbtn" src="./img/next.png">
-        </button>`
+        <button class="next">Next</button>`
     }
     else{
         popUp.classList.remove("hide")
@@ -233,15 +221,13 @@ submit.addEventListener("click", () => {
         <div class="coffee-content"> Order: ${allQuestion[qIndex].name}</div>
         <img class="product" src="${allQuestion[qIndex].image}">
         <p class="not">Not Quite Right!</p>
-        <p>Right Answer:</p>
+        <p class="text">Right Answer:</p>
         <div class="equation">
             <button class="rightAnswer1"></button>
             <button class="rightAnswer2"></button>
             <button class="rightAnswer3"></button>
         </div>
-        <button class="next">
-            <img class="startbtn" src="./img/next.png">
-        </button>`
+        <button class="next">Next</button>`
     }
     for(let i = 1; i < 4; i++){
         let right = "rightAnswer" + i
@@ -283,35 +269,35 @@ function ingredients(){
         let currentBtn = document.getElementById(currentClass)
         
         currentBtn.addEventListener("click", () => {
+            if(choice1 == selectedIngredients[i].number){
+                currentBtn.style.border = "transparent"
+                choice1 = 0
+                return
+            }
+            if(choice2 == selectedIngredients[i].number){
+                currentBtn.style.border = "transparent"
+                choice2 = 0
+                return
+            }
+            if(choice3 == selectedIngredients[i].number){
+                currentBtn.style.border = "transparent"
+                choice3 = 0
+                return
+            }
             if(choice1 == 0){
-                let answer1 = document.querySelector(".answer1");
-                choosenImage1 = selectedIngredients[i].image
-                answer1.style.backgroundImage = "url('" + selectedIngredients[i].image + "')"
-                answer1.style.backgroundSize = "contain"
-                answer1.style.backgroundPosition = "center center"
-                answer1.style.backgroundRepeat = "no-repeat"
+                currentBtn.style.border = "5px solid black"
                 choice1 = selectedIngredients[i].number
-                choice1cliked = i + 1
+                console.log(choice1)
             }
             else if(choice2 == 0){
-                let answer2 = document.querySelector(".answer2");
-                choosenImage2 = selectedIngredients[i].image
-                answer2.style.backgroundImage = "url('" + selectedIngredients[i].image + "')"
-                answer2.style.backgroundSize = "contain"
-                answer2.style.backgroundPosition = "center center"
-                answer2.style.backgroundRepeat = "no-repeat"
+                currentBtn.style.border = "5px solid black"
                 choice2 = selectedIngredients[i].number
-                choice2cliked = i + 1
+                console.log(choice2)
             }
             else if(choice3 == 0){
-                let answer3 = document.querySelector(".answer3");
-                choosenImage3 = selectedIngredients[i].image
-                answer3.style.backgroundImage = "url('" + selectedIngredients[i].image + "')"
-                answer3.style.backgroundSize = "contain"
-                answer3.style.backgroundPosition = "center center"
-                answer3.style.backgroundRepeat = "no-repeat"
+                currentBtn.style.border = "5px solid black"
                 choice3 = selectedIngredients[i].number
-                choice3cliked = i + 1
+                console.log(choice3)
             }
             else{
                 return
@@ -334,7 +320,10 @@ function Question(){
             <img class="end" src="./img/kopiKing.png">
             <p>You are a Kopi King!</p>
             <button class="playAgain">
-                <img class="startbtn" src="./img/playAgain.png">
+            <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
+            </button>
+            <button class="home">
+            <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
         else if(score > pass){
@@ -345,7 +334,10 @@ function Question(){
             <img class="end" src="./img/kopiMaster.png">
             <p>You are a Kopi Master.</p>
             <button class="playAgain">
-                <img class="startbtn" src="./img/playAgain.png">
+            <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
+            </button>
+            <button class="home">
+            <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
         else if(score < pass){
@@ -356,14 +348,28 @@ function Question(){
             <img class="end" src="./img/kopiNewbie.png">
             <p>You learn something new!</p>
             <button class="playAgain">
-                <img class="startbtn" src="./img/playAgain.png">
+            <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
+            </button>
+            <button class="home">
+            <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
 
-        let playAgain = document.querySelector(".playAgain")
-        playAgain.addEventListener("click", () => {
+        let home = document.querySelector(".home")
+        home.addEventListener("click", () => {
             final.classList.add("hide")
             selection.classList.remove("hide")
+    })
+    let playAgain = document.querySelector(".playAgain")
+        playAgain.addEventListener("click", () => {
+            final.classList.add("hide")
+            game.classList.remove("hide")
+            current = 0;
+            score = 0;
+            choice1 = 0;
+            choice2 = 0;
+            choice3 = 0;
+            Question()
     })
 
         return
@@ -386,26 +392,20 @@ function Question(){
         question.innerHTML = `
         <div class="top">
             <div class="left">
-                <div class="coffee-content"> Order:</div>
                 <img class="product" src="${allQuestion[qIndex].image}">
                 <div class="coffee-content">${allQuestion[qIndex].name}</div>
             </div>
             <div class="right">
-                <div class="coffee-content"> Ingredient:</div>
+                <div class="coffee-content"> Ingredients:</div>
                 <img class="in" src="${allQuestion[qIndex].ingredient1Image}">
                 <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
                 <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
             </div>
-        </div>
-        <div class="equation">
-            <button class="answer1"></button>
-            <button class="answer2"></button>
-            <button class="answer3"></button>
         </div>`
     }
 
     if(normalQ == true){
-        let missingIngredient = Math.floor(Math.random() * 3);
+        let missingIngredient = Math.floor(Math.random() * allQuestion[qIndex].length);
 
         if(missingIngredient == 0){
             allQuestion[qIndex].ingredient1Image = "./img/q.png"
@@ -420,7 +420,6 @@ function Question(){
         question.innerHTML = `
         <div class="top">
             <div class="left">
-                <div class="coffee-content"> Order:</div>
                 <img class="product" src="${allQuestion[qIndex].image}">
                 <div class="coffee-content">${allQuestion[qIndex].name}</div>
             </div>
@@ -430,11 +429,6 @@ function Question(){
                 <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
                 <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
             </div>
-        </div>
-        <div class="equation">
-            <button class="answer1"></button>
-            <button class="answer2"></button>
-            <button class="answer3"></button>
         </div>`
         if(missingIngredient == 0){
             allQuestion[qIndex].ingredient1Image = correctImage1
@@ -448,26 +442,18 @@ function Question(){
     }
     if(hardQ == true){
         question.innerHTML = `
-        <div class="coffee-content"> Order:</div>
         <img class="product" src="${allQuestion[qIndex].image}">
-        <div class="coffee-content">${allQuestion[qIndex].name}</div>
-        <div class="equation">
-            <button class="answer1"></button>
-            <button class="answer2"></button>
-            <button class="answer3"></button>
-        </div>`
+        <div class="coffee-content">${allQuestion[qIndex].name}</div>`
     }
 
     for (let i = 0; i < 3; i ++){
-        let currentClass = "answer" + (i + 1)
-
         let currentChoice = "choice" + (i + 1)
+        window[currentChoice] = 0;
+    }
+    for (let i = 0; i < 7; i ++){
+        let currentClass = "btn" + (i + 1)
 
-        let currentBtn = document.querySelector(`.${currentClass}`)
-
-        currentBtn.addEventListener("click", () => {    
-            window[currentChoice] = 0;
-            currentBtn.style.backgroundImage = "none"
-        })
+        let currentBtn = document.getElementById(`${currentClass}`)  
+        currentBtn.style.border = "transparent"
     }
 }
