@@ -95,7 +95,7 @@ body {
 }
 
 .words{
-    font-size: 20px;
+    font-size: 20px !important;
     width: 100%;
     margin: 0 !important;
     justify-content: center;
@@ -298,18 +298,21 @@ img.btn{
         max-width: 820px;
         margin: 0 auto;
     }
+    .final{
+        gap: 1vh;
+    }
     .title{
         width: 40%;
     }
-    .startButton,.playAgain,.easy,.normal,.hard,.next,.submit{
-        padding: 4%;
-        max-width: 300px;
+    .startButton,.playAgain,.easy,.normal,.hard,.next,.submit,.home{
+        padding: 4% 2.5%;
+        max-width: 350px;
     }
     .easy,.normal,.hard{
         font-size: 30px;
     }
     .words{
-        font-size: 30px;
+        font-size: 30px !important;
     }
     .arrowHead{
         max-width: 25px;
@@ -345,9 +348,9 @@ img.btn{
         max-width: 300px;
         margin: 40px auto;
     }
-    .startButton, .startGame,.restart,.easy,.normal,.hard,.submit,.next{
+    .startButton, .startGame,.restart,.easy,.normal,.hard,.submit,.next,.playAgain,.home{
         max-width: 250px;
-        padding: 3%;
+        padding: 3% 2.5%;
     }
     .startButton{
         margin: 50px auto;
@@ -366,6 +369,12 @@ img.btn{
     }
     .popUp .product{
         width: 50%;
+    }
+    .final .end{
+        width: 55%;
+    }
+    .final .title{
+        width: 45%;
     }
     .text{
         margin: 15px;

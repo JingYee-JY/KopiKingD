@@ -358,7 +358,7 @@ function Question(){
         let home = document.querySelector(".home")
         home.addEventListener("click", () => {
             final.classList.add("hide")
-            selection.classList.remove("hide")
+            start.classList.remove("hide")
     })
     let playAgain = document.querySelector(".playAgain")
         playAgain.addEventListener("click", () => {
