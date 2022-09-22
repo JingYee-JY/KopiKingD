@@ -194,7 +194,7 @@ body {
 .question, .instruction {
     justify-content: center;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     font-size: 22px;
     font-weight: 500;
 }
@@ -213,10 +213,6 @@ body {
 
 .instruction{
     padding-top:0px;
-}
-
-.question{
-    padding-bottom: 30px;
 }
 .question p, .instruction p{
     margin: 0;
