@@ -149,11 +149,14 @@ body {
 .right{
     background-color: white;
     border-radius: 10px;
-    width: 80%;
+    width: 100%;
+    padding: 10px;
 }
-
+.coffee-content{
+    margin-bottom: 10px;
+}
 .in{
-    width: 35%;
+    width: 32%;
 }
 
 /*question*/
@@ -172,7 +175,7 @@ body {
 
 .product{
     margin: 0% auto;
-    width: 100%;
+    width: 90%;
 }
 
 .popUp .product{
@@ -227,6 +230,9 @@ body {
     grid-template-columns: repeat(3, 32%);
     justify-items: center;
 }
+.answer-q button{
+    margin-bottom: 10px;
+}
 
 #btn1, #btn2, #btn3, #btn4, #btn5, #btn6,#btn7{
     max-width: 90%;
@@ -275,6 +281,7 @@ img.btn{
     display: flex;
     margin: 0 auto;
     max-width: 60%;
+    margin-bottom: 20px;
 }
 
 .final p{
@@ -367,11 +374,12 @@ img.btn{
     .answer-q{
         width: 75%;
     }
+  
     .popUp .product{
         width: 50%;
     }
     .final .end{
-        width: 55%;
+        width: 50%;
     }
     .final .title{
         width: 45%;
@@ -383,3 +391,9 @@ img.btn{
         margin-bottom: 10px;
     }
 }
+
+@media screen and (max-width:767px){
+    .endTitle {
+      display: none;
+    }
+  }

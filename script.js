@@ -315,63 +315,51 @@ function Question(){
         if(score == totalQuestion){
             final.innerHTML = `
             <div class="game-title">
-                <img class="title" src="./img/title.png">
+                <img class="title endTitle" src="./img/title.png">
             </div>
             <img class="end" src="./img/kopiKing.png">
             <p>You are a Kopi King!</p>
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home">
+            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
         else if(score > pass){
             final.innerHTML = `
             <div class="game-title">
-                <img class="title" src="./img/title.png">
+                <img class="title endTitle" src="./img/title.png">
             </div>
             <img class="end" src="./img/kopiMaster.png">
             <p>You are a Kopi Master.</p>
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home">
+            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
         else if(score < pass){
             final.innerHTML = `
             <div class="game-title">
-                <img class="title" src="./img/title.png">
+                <img class="title endTitle" src="./img/title.png">
             </div>
             <img class="end" src="./img/kopiNewbie.png">
             <p>You learn something new!</p>
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home">
+            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
 
-        let home = document.querySelector(".home")
-        home.addEventListener("click", () => {
+        let playAgain = document.querySelector(".playAgain")
+        playAgain.addEventListener("click", () => {
             final.classList.add("hide")
             start.classList.remove("hide")
     })
-    let playAgain = document.querySelector(".playAgain")
-        playAgain.addEventListener("click", () => {
-            final.classList.add("hide")
-            game.classList.remove("hide")
-            current = 0;
-            score = 0;
-            choice1 = 0;
-            choice2 = 0;
-            choice3 = 0;
-            Question()
-    })
-
         return
     }
 
