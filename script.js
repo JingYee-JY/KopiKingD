@@ -6,10 +6,17 @@ const easy = document.querySelector(".easy")
 const normal = document.querySelector(".normal")
 const hard = document.querySelector(".hard")
 const question = document.querySelector(".question")
-const questionNumber = document.querySelector(".QuestionNumber")
+const questionNumber = document.querySelector(".game .QuestionNumber")
 const submit = document.querySelector(".submit")
+const next = document.querySelector(".next")
 const popUp = document.querySelector(".popUp");
 const final = document.querySelector(".final");
+const homeButton = document.querySelector(".home")
+
+const clickSound = document.getElementById("click")
+const clap = document.getElementById("clap")
+const completed = document.getElementById("completed")
+const lose = document.getElementById("lose")
 
 let easyQ;
 let normalQ;
@@ -43,6 +50,9 @@ let chosenBtn4;
 let chosenBtn5;
 let chosenBtn6;
 let chosenBtn7;
+
+let tempArray = [];
+let correctDrink
 
 let allQuestion = [
     {name: "Kopi",image:"./img/Kopi.png",
@@ -120,130 +130,107 @@ let selectedIngredients = [
 ]
 
 startButton.addEventListener("click", () => {
-    start.classList.add("hide")
-    selection.classList.remove("hide")
-})
-
-easy.addEventListener("click", () => {
-    selection.classList.add("hide")
-    game.classList.remove("hide")
-    easyQ = true
-    current = 0;
-    totalQuestion = 5;
-    score = 0;
-    choice1 = 0;
-    choice2 = 0;
-    choice3 = 0;
-    Question()
-})
-
-normal.addEventListener("click", () => {
-    selection.classList.add("hide")
-    game.classList.remove("hide")
-    normalQ = true
-    current = 0;
-    totalQuestion = 10;
-    score = 0;
-    choice1 = 0;
-    choice2 = 0;
-    choice3 = 0;
-    Question()
-})
-
-hard.addEventListener("click", () => {
-    selection.classList.add("hide")
-    game.classList.remove("hide")
-    hardQ = true
-    current = 0;
-    totalQuestion = 15;
-    score = 0;
-    choice1 = 0;
-    choice2 = 0;
-    choice3 = 0;
-    Question()
+    playClickSound()
+    let delay = setTimeout(() => {
+        start.classList.add("hide")
+        game.classList.remove("hide")
+        current = 0;
+        totalQuestion = Math.floor(Math.random() * 5) + 5;
+        score = 0;
+        choice1 = 0;
+        choice2 = 0;
+        choice3 = 0;
+        Question()
+    }, 200);   
 })
 
 submit.addEventListener("click", () => {
     if(choice1 == 0){
         return
     }
-    choosenAnswer1 = false
-    choosenAnswer2 = false
-    choosenAnswer3 = false
+    playClickSound()
+    let delay = setTimeout(()=>{
+        choosenAnswer1 = false
+        choosenAnswer2 = false
+        choosenAnswer3 = false
 
-    console.log(choice1,choice2,choice3)
-    console.log(correctAnswer1, correctAnswer2, correctAnswer3)
+        console.log(choice1,choice2,choice3)
+        console.log(correctAnswer1, correctAnswer2, correctAnswer3)
 
-    for(let i = 1; i < 4; i++){
-        let currentCheck = "choice" + i
-        if(window[currentCheck] == correctAnswer1 && choosenAnswer1 == false){
-            console.log("r1")
-            choosenAnswer1 = true
+        for(let i = 1; i < 4; i++){
+            let currentCheck = "choice" + i
+            if(window[currentCheck] == correctAnswer1 && choosenAnswer1 == false){
+                console.log("r1")
+                choosenAnswer1 = true
+            }
+            if(window[currentCheck] == correctAnswer2 && choosenAnswer2 == false){
+                console.log("r2")
+                choosenAnswer2 = true
+            }
+            if(window[currentCheck] == correctAnswer3 && choosenAnswer3 == false){
+                console.log("r3")
+                choosenAnswer3 = true
+            }
+            window[currentCheck] = 0
         }
-        if(window[currentCheck] == correctAnswer2 && choosenAnswer2 == false){
-            console.log("r2")
-            choosenAnswer2 = true
-        }
-        if(window[currentCheck] == correctAnswer3 && choosenAnswer3 == false){
-            console.log("r3")
-            choosenAnswer3 = true
-        }
-        window[currentCheck] = 0
-    }
 
-    if(choosenAnswer1 == true && choosenAnswer2 == true && choosenAnswer3 == true){
-        score += 1;
+        let popQuestionNumber = document.querySelector(".popUp .QuestionNumber")
+        let coffeeContent = document.querySelector(".popUp .coffee-content")
+        let product = document.querySelector(".popUp .product")
+        let output = document.querySelector(".output")
+        let text = document.querySelector(".text")
+
         popUp.classList.remove("hide")
         game.classList.add("hide")
 
-        popUp.innerHTML = `
-        <div class="QuestionNumber">
-            ${current}/${totalQuestion}
-        </div>
-        <div class="coffee-content"> Order: ${allQuestion[qIndex].name}</div>
-        <img class="product" src="${allQuestion[qIndex].image}">
-        <p class="complete">Completed!</p>
-        <p class="text">Your Answer:</p>
-        <div class="equation">
-            <button class="rightAnswer1"></button>
-            <button class="rightAnswer2"></button>
-            <button class="rightAnswer3"></button>
-        </div>
-        <button class="next">Next</button>`
-    }
-    else{
-        popUp.classList.remove("hide")
-        game.classList.add("hide")
-        popUp.innerHTML = `
-        <div class="QuestionNumber">
-            ${current}/${totalQuestion}
-        </div>
-        <div class="coffee-content"> Order: ${allQuestion[qIndex].name}</div>
-        <img class="product" src="${allQuestion[qIndex].image}">
-        <p class="not">Not Quite Right!</p>
-        <p class="text">Right Answer:</p>
-        <div class="equation">
-            <button class="rightAnswer1"></button>
-            <button class="rightAnswer2"></button>
-            <button class="rightAnswer3"></button>
-        </div>
-        <button class="next">Next</button>`
-    }
-    for(let i = 1; i < 4; i++){
-        let right = "rightAnswer" + i
-        let check = "correctAnswer" + i
-        let image = "correctImage" + i
-        if(window[check] != null){
-            let rightAnswer = document.querySelector(`.${right}`)
+        console.log(product,coffeeContent, correctDrink)
+        if(choosenAnswer1 == true && choosenAnswer2 == true && choosenAnswer3 == true){
+            score += 1;
 
-            rightAnswer.style.backgroundImage = "url('" + window[image] + "')"
-            rightAnswer.style.backgroundSize = "contain"
-            rightAnswer.style.backgroundPosition = "center center"
-            rightAnswer.style.backgroundRepeat = "no-repeat"
+            popQuestionNumber.innerHTML = `
+                ${current}/${totalQuestion}`
+            coffeeContent.innerHTML = ` Order: ${correctDrink.name}`
+            product.src= correctDrink.image
+            output.style.color="#4F8B56"
+            output.innerHTML = `Good! <img class="thumb" src="./img/right.png"></p>`
+            text.innerHTML = "Your Answer"
         }
-    }
-    let next = document.querySelector(".next")
-    next.addEventListener("click", () => {
+        else{
+            popQuestionNumber.innerHTML = `
+                ${current}/${totalQuestion}`
+                coffeeContent.innerHTML = ` Order: ${correctDrink.name}`
+            product.src= correctDrink.image
+            output.style.color="#DF493A"
+            output.innerHTML = `Not Quite Right!</p>`
+            text.innerHTML = "Your Answer"
+        }
+        if(correctAnswer2 == 0){
+            let blank =document.querySelector(".rightAnswer2")
+            blank.classList.add("hide")
+        }
+        if(correctAnswer3 == 0){
+            let blank =document.querySelector(".rightAnswer3")
+            blank.classList.add("hide")
+        }
+        for(let i = 1; i < 4; i++){
+            let right = "rightAnswer" + i
+            let check = "correctAnswer" + i
+            let image = "correctImage" + i
+            if(window[check] != 0){
+                let rightAnswer = document.querySelector(`.${right}`)
+
+                rightAnswer.style.backgroundImage = "url('" + window[image] + "')"
+                rightAnswer.style.backgroundSize = "contain"
+                rightAnswer.style.backgroundPosition = "center center"
+                rightAnswer.style.backgroundRepeat = "no-repeat"
+            }
+        }
+    },200)
+})
+
+next.addEventListener("click", () => {
+    playClickSound()
+    let delay = setTimeout(() => {
         choice1 = 0;
         choice2 = 0;
         choice3 = 0;
@@ -257,7 +244,7 @@ submit.addEventListener("click", () => {
         popUp.classList.add("hide")
         game.classList.remove("hide")
         Question()
-    })
+    }, 200);
 })
 
 ingredients()
@@ -269,6 +256,7 @@ function ingredients(){
         let currentBtn = document.getElementById(currentClass)
         
         currentBtn.addEventListener("click", () => {
+            playClickSound()
             if(choice1 == selectedIngredients[i].number){
                 currentBtn.style.border = "transparent"
                 choice1 = 0
@@ -322,7 +310,7 @@ function Question(){
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
+            <button class="home">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
@@ -336,7 +324,7 @@ function Question(){
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
+            <button class="home">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
@@ -350,89 +338,56 @@ function Question(){
             <button class="playAgain">
             <p class="words"><img src="./img/again.png" class="arrowHead">Play again</p>
             </button>
-            <button class="home" onclick="window.location.href='https://gimme.sg/activations/dementia/';">
+            <button class="home">
             <p class="words"><img src="./img/home.png" class="arrowHead">Back to Home</p>
             </button>`
         }
 
         let playAgain = document.querySelector(".playAgain")
         playAgain.addEventListener("click", () => {
-            final.classList.add("hide")
-            start.classList.remove("hide")
-    })
+            playClickSound()
+            let delay = setTimeout(() => {
+                final.classList.add("hide")
+                start.classList.remove("hide")
+                easyQ = normalQ = hardQ = false
+            }, 200);      
+        })
+        let homeButton = document.querySelector(".home")
+        homeButton.addEventListener("click", () => {
+            playClickSound()
+            let delay = setTimeout(() => {
+              location.assign('https://gimme.sg/activations/dementia/');
+            }, 200);
+        })
         return
     }
 
 
+    if (tempArray.length === 0){
+        for(let j = 0; j < allQuestion.length; j++){
+            tempArray.push(allQuestion[j])
+        }
+    }
+    
+    console.log(tempArray)
     current += 1;
     questionNumber.innerHTML = current + "/" + totalQuestion;
 
-    qIndex = Math.floor(Math.random() * 12);
+    qIndex = Math.floor(Math.random() * tempArray.length);
     
-    correctAnswer1 = allQuestion[qIndex].ingredient1
-    correctAnswer2 = allQuestion[qIndex].ingredient2
-    correctAnswer3 = allQuestion[qIndex].ingredient3
-    correctImage1 = allQuestion[qIndex].ingredient1Image
-    correctImage2 = allQuestion[qIndex].ingredient2Image
-    correctImage3 = allQuestion[qIndex].ingredient3Image
+    correctDrink = tempArray[qIndex]
+    correctAnswer1 = tempArray[qIndex].ingredient1
+    correctAnswer2 = tempArray[qIndex].ingredient2
+    correctAnswer3 = tempArray[qIndex].ingredient3
+    correctImage1 = tempArray[qIndex].ingredient1Image
+    correctImage2 = tempArray[qIndex].ingredient2Image
+    correctImage3 = tempArray[qIndex].ingredient3Image
 
-    if(easyQ == true){
-        question.innerHTML = `
-        <div class="top">
-            <div class="left">
-                <img class="product" src="${allQuestion[qIndex].image}">
-                <div class="coffee-content">${allQuestion[qIndex].name}</div>
-            </div>
-            <div class="right">
-                <div class="coffee-content"> Ingredients:</div>
-                <img class="in" src="${allQuestion[qIndex].ingredient1Image}">
-                <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
-                <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
-            </div>
-        </div>`
-    }
-
-    if(normalQ == true){
-        let missingIngredient = Math.floor(Math.random() * allQuestion[qIndex].length);
-
-        if(missingIngredient == 0){
-            allQuestion[qIndex].ingredient1Image = "./img/q.png"
-        }
-        if(missingIngredient == 1){
-            allQuestion[qIndex].ingredient2Image = "./img/q.png"
-        }
-        if(missingIngredient == 2){
-            allQuestion[qIndex].ingredient3Image = "./img/q.png"
-        }
-
-        question.innerHTML = `
-        <div class="top">
-            <div class="left">
-                <img class="product" src="${allQuestion[qIndex].image}">
-                <div class="coffee-content">${allQuestion[qIndex].name}</div>
-            </div>
-            <div class="right">
-                <div class="coffee-content"> Ingredient:</div>
-                <img class="in" src="${allQuestion[qIndex].ingredient1Image}">
-                <img class="in" src="${allQuestion[qIndex].ingredient2Image}">
-                <img class="in" src="${allQuestion[qIndex].ingredient3Image}">
-            </div>
-        </div>`
-        if(missingIngredient == 0){
-            allQuestion[qIndex].ingredient1Image = correctImage1
-        }
-        if(missingIngredient == 1){
-            allQuestion[qIndex].ingredient2Image = correctImage2
-        }
-        if(missingIngredient == 2){
-            allQuestion[qIndex].ingredient3Image = correctImage3
-        }
-    }
-    if(hardQ == true){
-        question.innerHTML = `
-        <img class="product" src="${allQuestion[qIndex].image}">
-        <div class="coffee-content">${allQuestion[qIndex].name}</div>`
-    }
+    question.innerHTML = `
+    <img class="product" src="${tempArray[qIndex].image}">
+    <div class="coffee-content">${tempArray[qIndex].name}</div>`
+    let product = document.querySelector(".product");
+    product.style.width = "30%"
 
     for (let i = 0; i < 3; i ++){
         let currentChoice = "choice" + (i + 1)
@@ -444,4 +399,23 @@ function Question(){
         let currentBtn = document.getElementById(`${currentClass}`)  
         currentBtn.style.border = "transparent"
     }
+    for (let i = 0; i < 3; i ++){
+        let currentAnswerClass = "rightAnswer" + (i + 1)
+
+        let currentAnswer = document.querySelector(`.${currentAnswerClass}`)  
+        currentAnswer.classList.remove("hide")
+    }
+
+    tempArray.splice(qIndex, 1);
 }
+
+function playClickSound(){
+    console.log(clickSound)
+    clickSound.currentTime = 0
+    clickSound.play()
+}
+
+/*prevent double tag zoom*/
+document.addEventListener('dblclick', function(event) {
+event.preventDefault();
+}, { passive: false });

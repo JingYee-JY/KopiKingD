@@ -85,9 +85,31 @@ body {
     margin-bottom: 20px;
 }
 
-.startButton p, .startGame p, .submit p,.easy p, .normal p, .hard p,.next p, .home p {
+.startButton p, .startGame p, .submit p,.next p, .home p {
     margin: 30px;
     margin-right: 60px;
+}
+
+.startButton:active,.submit:active,.next:active,.playAgain:active,.home:active{
+    animation: animate 0.2s;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    25%{
+        transform: rotate(-20deg) translateX(-10px);
+    }
+    50%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    75%{
+        transform: rotate(20deg) translateX(10px);
+    }
+    100%{
+        transform: rotate(0deg) translateX(0px);
+    }
 }
 
 .startButton{
@@ -252,17 +274,17 @@ img.btn{
     width: 100%;
 }
 
-.not,.complete{
+.output{
     margin: 0% auto;
     font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.not{
-    color: #DF493A;
+.thumb{
+    width: 10%;
+    height: auto;
 }
-.complete{
-    color: #4F8B56;
-}
-
 .final{
     height: 100vh;
     width: 100%;
@@ -320,7 +342,7 @@ img.btn{
     .arrowHead{
         max-width: 25px;
     }
-    .game p,.popUp p{
+    .game p{
         font-size: 35px;
     }
     .coffee-content{
@@ -332,9 +354,23 @@ img.btn{
     }
     .answer-q{
         margin-bottom: 10px;
+        width: 80%;
     }
     .question{
         padding-bottom: 5px;
+    }
+    .popUp .product{
+        width: 40%;
+    }
+    .popUp p{
+        font-size: 60px;
+    }
+    .thumb {
+        width: 9%;
+        height: auto;
+    }
+    .text{
+        margin: 7px;
     }
 }
 
@@ -381,7 +417,7 @@ img.btn{
         width: 45%;
     }
     .text{
-        margin: 15px;
+        margin: 0;
     }
     .equation{
         margin-bottom: 10px;
