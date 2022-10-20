@@ -27,6 +27,7 @@ body {
 }
 
 .text{
+    margin: 0;
     font-size: 25px;
 }
 
@@ -369,9 +370,6 @@ img.btn{
         width: 9%;
         height: auto;
     }
-    .text{
-        margin: 7px;
-    }
 }
 
 /*desktop*/
@@ -415,9 +413,6 @@ img.btn{
     }
     .final .title{
         width: 45%;
-    }
-    .text{
-        margin: 0;
     }
     .equation{
         margin-bottom: 10px;

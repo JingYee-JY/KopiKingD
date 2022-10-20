@@ -301,6 +301,8 @@ function Question(){
         game.classList.add('hide')
         final.classList.remove("hide")
         if(score == totalQuestion){
+            clap.currentTime = 0
+            clap.play()
             final.innerHTML = `
             <div class="game-title">
                 <img class="title endTitle" src="./img/title.png">
@@ -315,6 +317,8 @@ function Question(){
             </button>`
         }
         else if(score > pass){
+            completed.currentTime = 0
+            completed.play()
             final.innerHTML = `
             <div class="game-title">
                 <img class="title endTitle" src="./img/title.png">
@@ -329,6 +333,8 @@ function Question(){
             </button>`
         }
         else if(score < pass){
+            lose.currentTime = 0
+            lose.play()
             final.innerHTML = `
             <div class="game-title">
                 <img class="title endTitle" src="./img/title.png">
@@ -405,7 +411,7 @@ function Question(){
         let currentAnswer = document.querySelector(`.${currentAnswerClass}`)  
         currentAnswer.classList.remove("hide")
     }
-
+    console.log(tempArray)
     tempArray.splice(qIndex, 1);
 }
 
